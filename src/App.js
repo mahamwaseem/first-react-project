@@ -8,7 +8,7 @@ import Todo from "./My_Components/TOdo";
 function App() {
   return (
     <>
-      <Headers title = "My Todos List"/>
+      <Headers title = "My Todos List" searchBar ={true}/>
       <Todo/>
       <Footer/>
     </>
