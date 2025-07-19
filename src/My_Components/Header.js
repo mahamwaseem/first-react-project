@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
 export default function Header(props) {
   return (
@@ -29,6 +30,8 @@ export default function Header(props) {
   )
 }
 // Default Header
-Header.protoTypes = {
-  title: PropTypes.string
-}
+Header.propTypes = {
+  title: PropTypes.string,
+  searchBar: PropTypes.bool
+};
+
