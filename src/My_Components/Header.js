@@ -28,3 +28,7 @@ export default function Header(props) {
      
   )
 }
+// Default Header
+Header.protoTypes = {
+  title: PropTypes.string
+}
