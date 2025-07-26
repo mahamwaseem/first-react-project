@@ -2,11 +2,12 @@ import './App.css';
 import Headers from "./My_Components/Header";
 import Footer from "./My_Components/Footer";
 import Todos from "./My_Components/Todos";
+import React,  { useState } from 'react';
 
 
 function App() {
-  const onDelete = ()=>{
-    console.log("I am ondelete")
+  const onDelete = (todo)=>{
+    console.log("I am ondelete of todo", todo)
   }
 
 
