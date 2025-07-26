@@ -7,12 +7,17 @@ import React,  { useState } from 'react';
 
 function App() {
   const onDelete = (todo)=>{
-    console.log("I am ondelete of todo", todo)
+    console.log("I am ondelete of todo", todo);
+
+    setTodos(todos.filter((e) => {
+        return e!==todo;
+    }));
   }
 
 
 
-  let todos =[{
+ const [todos, setTodos] = useState([
+  {
     sno: 1,
     title:"Go to the market",
     desc: "You need to go to the market to get this job done1"
@@ -27,7 +32,7 @@ function App() {
     title:"Go to the masjid",
     desc: "You need to go to the market to get this job done3"
   },
-]
+]);
   return (
     <>
       <Headers title = "My Todos List" searchBar ={true}/>
