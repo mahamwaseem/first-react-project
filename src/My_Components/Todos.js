@@ -5,8 +5,11 @@ export default function
 Todos(props) {
   return (
     <div className = "container">
-      <h3>Todos List</h3>
-      <TodoItem todo={props.todos[0]}/>
+      <h3 className = "text-center my-3">Todos List</h3>
+      {props.todos.map((todo) => {
+        return  <TodoItem todo={todo} onDelete = {props.onDelete}/>
+      })}
+     
     </div>
   )
 }
