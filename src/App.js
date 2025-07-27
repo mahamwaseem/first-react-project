@@ -1,9 +1,16 @@
 import './App.css';
 import Headers from "./My_Components/Header";
 import { AddTodo } from './My_Components/AddTodo';
+import {About} from "./My_Components/About";
 import Footer from "./My_Components/Footer";
 import Todos from "./My_Components/Todos";
 import React, { useState, useEffect } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 
 function App() {
@@ -53,10 +60,27 @@ function App() {
 
   return (
     <>
+    <Router>
       <Headers title="My Todos List" searchBar={true} />
-      <AddTodo addTodo={addTodo} />
-      <Todos todos={todos} onDelete={onDelete} />
+      <Switch>
+        <Route path="/" render ={() => {
+          return(
+          <>
+           <AddTodo addTodo={addTodo} />
+          <Todos todos={todos} onDelete={onDelete} />
+          </>
+          )
+        }}>
+            </Route>
+          <Route path="/about">
+            <About />
+          </Route>  
+        </Switch>
+
+     
+
       <Footer />
+    </Router>
     </>
   );
 }
