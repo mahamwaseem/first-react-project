@@ -13,9 +13,9 @@ Todos(props) {
       {props.todos.length===0? "No Todos to display": 
       props.todos.map((todo) => {
         return  (
-        <>
-        <TodoItem key ={todo.sno} todo={todo} onDelete = {props.onDelete}/><hr/>
-        </>
+       
+        <TodoItem key ={todo.sno} todo={todo} onDelete = {props.onDelete}/>
+    
         )
       })
     }

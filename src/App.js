@@ -1,16 +1,12 @@
 import './App.css';
 import Headers from "./My_Components/Header";
 import { AddTodo } from './My_Components/AddTodo';
-import {About} from "./My_Components/About";
+import { About } from "./My_Components/About";
 import Footer from "./My_Components/Footer";
 import Todos from "./My_Components/Todos";
 import React, { useState, useEffect } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 
 
 function App() {
@@ -36,7 +32,7 @@ function App() {
   const addTodo = (title, desc) => {
     console.log("I am adding this todo", title, desc);
     let sno;
-    if (todos.length == 0) {
+    if (todos.length === 0) {
       sno = 0;
     }
     else {
@@ -60,27 +56,23 @@ function App() {
 
   return (
     <>
-    <Router>
-      <Headers title="My Todos List" searchBar={true} />
-      <Switch>
-        <Route path="/" render ={() => {
-          return(
+      <Router>
+        <Headers title="My Todos List" searchBar={true} />
+        <Routes>
+          <Route path="/" element={
           <>
-           <AddTodo addTodo={addTodo} />
-          <Todos todos={todos} onDelete={onDelete} />
+            <AddTodo addTodo={addTodo} />
+            <Todos todos={todos} onDelete={onDelete} />
           </>
-          )
-        }}>
-            </Route>
-          <Route path="/about">
-            <About />
-          </Route>  
-        </Switch>
+        } />
+        <Route path="/about" element={<About />} />
+      </Routes>
+       
 
-     
 
-      <Footer />
-    </Router>
+
+        <Footer />
+      </Router>
     </>
   );
 }
